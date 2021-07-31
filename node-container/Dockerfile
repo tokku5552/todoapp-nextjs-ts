@@ -7,6 +7,9 @@ WORKDIR /workdir
 #RUN apt-get -y update && apt-get install -y sudo openjdk-11-jdk
 RUN npm install -g firebase-tools
 
+# aliasの設定
+RUN echo 'alias ll="ls -l"' >> ~/.bashrc
+
 # Expose ports
 ENV HOST 0.0.0.0
 # next.js localhost

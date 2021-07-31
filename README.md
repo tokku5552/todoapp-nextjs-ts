@@ -30,7 +30,8 @@ docker-compose run -p 3000:3000 -p 4000:4000 -p 5000:5000 -p 5001:5001 -p 8080:8
 
 ```
 docker ps
-docker exec -i -t <CONTAINER ID> /bin/bash
+docker exec -it <CONTAINER ID> /bin/bash
+docker exec -it "$(docker ps -qf "name=node-container")" /bin/bash
 ```
 
 - コンテナを停止するとき
