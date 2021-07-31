@@ -4,13 +4,19 @@
 npx create-next-app todoapp --example with-typescript
 ```
 
+# packages
+
+```
+npm install --save firebase
+```
+
 # コマンド集
 
 - コンテナを起動するとき
 
 ```
 docker-compose up
-docker-compose run -p 3000:3000 node-container /bin/bash
+docker-compose run -p 3000:3000 -p 9005:9005 node-container /bin/bash
 ```
 
 - 起動済みのコンテナに接続するとき

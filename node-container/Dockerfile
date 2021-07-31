@@ -10,3 +10,5 @@ RUN npm install -g firebase-tools
 # Expose ports
 ENV HOST 0.0.0.0
 EXPOSE 3000
+# firebase login
+EXPOSE 9005
