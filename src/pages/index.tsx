@@ -7,16 +7,18 @@ import { Todo } from "../interfaces";
 import { sampleTodoData } from "../utils/sample-data";
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
+import { disconnect } from "process";
+import { QueryDocumentSnapshot } from "firebase-functions/lib/providers/firestore";
 
 type Props = {
   items: Todo[];
 };
 
 const IndexPage = ({ items }: Props) => {
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
+  const [title, setTitle] = useState("");
+  const [detail, setDetail] = useState("");
 
-  const data = { name, message };
+  const data = { title, detail };
 
   useEffect(() => {
     // firebase.auth().onAuthStateChanged(async (user) => {
@@ -29,12 +31,12 @@ const IndexPage = ({ items }: Props) => {
 
   // Firestore にデータを登録する関数
   const createData = async () => {
-    if (!name || !message) {
+    if (!title || !detail) {
       alert("名前とメッセージを入力してください");
       return;
     }
     const db = firebase.firestore();
-    await db.collection("profile").doc(name).set(data);
+    await db.collection("todos").doc().set(data);
     alert("Firestoreにデータを作成できました！");
   };
 
@@ -53,12 +55,12 @@ const IndexPage = ({ items }: Props) => {
       </p>
       <p>
         <label>
-          名前：
-          <input value={name} onChange={(e) => setName(e.target.value)} />
+          title:
+          <input value={title} onChange={(e) => setTitle(e.target.value)} />
         </label>
         <label>
-          メッセージ：
-          <input value={message} onChange={(e) => setMessage(e.target.value)} />
+          detail:
+          <input value={detail} onChange={(e) => setDetail(e.target.value)} />
         </label>
 
         <button onClick={createData}>Firestoreにデータを作成</button>
@@ -68,7 +70,16 @@ const IndexPage = ({ items }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const items: Todo[] = sampleTodoData;
+  // const items: Todo[] = sampleTodoData;
+  const db = firebase.firestore();
+  const collectionRef = await db.collection("todos").get();
+  const items: Todo[] = collectionRef.docs.map((doc) => {
+    return {
+      id: doc.data().id,
+      title: doc.data().title,
+      detail: doc.data().detail,
+    };
+  });
   return { props: { items } };
 };
 

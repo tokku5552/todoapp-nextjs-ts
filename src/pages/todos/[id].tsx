@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 
 import { Todo } from "../../interfaces";
-import { sampleTodoData, sampleUserData } from "../../utils/sample-data";
+import { sampleTodoData } from "../../utils/sample-data";
 import Layout from "../../components/Layout";
 import TodoListDetail from "../../components/TodoListDetail";
 
@@ -22,7 +22,7 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
   }
 
   return (
-    <Layout title={`${item ? item.title : "User Detail"}`}>
+    <Layout title={`${item ? item.title : "Todo Detail"}`}>
       {item && <TodoListDetail item={item} />}
     </Layout>
   );
