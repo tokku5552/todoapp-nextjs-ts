@@ -8,7 +8,7 @@ type Props = {
 };
 
 const TodoListItem = ({ data }: Props) => (
-  <Link href="/users/[id]" as={`/users/${data.id}`}>
+  <Link href="/todos/[id]" as={`/todos/${data.id}`}>
     <a>
       {data.id}: {data.title}
     </a>
