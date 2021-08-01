@@ -71,6 +71,7 @@ const IndexPage = ({ items }: Props) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   // const items: Todo[] = sampleTodoData;
+  // firebaseではなく、adminじゃないととってこれなさそう
   const db = firebase.firestore();
   const collectionRef = await db.collection("todos").get();
   const items: Todo[] = collectionRef.docs.map((doc) => {
