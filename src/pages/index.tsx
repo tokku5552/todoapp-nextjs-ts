@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 
 const IndexPage = () => (
   <Layout title="Home">
-    <h1>Hello Next.js 👋</h1>
+    <h1>TodoAppSample Next.js</h1>
     <p>
       <Link href="/about">
         <a>About</a>
