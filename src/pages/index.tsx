@@ -5,9 +5,11 @@ const IndexPage = () => (
   <Layout title="Home">
     <h1>TodoAppSample Next.js</h1>
     <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
+      <label>
+        Name:
+        <input type="text" name="name" />
+      </label>{" "}
+      <input type="submit" value="Submit" />
     </p>
   </Layout>
 );

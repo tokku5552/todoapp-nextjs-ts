@@ -9,7 +9,9 @@ export type User = {
   name: string;
 };
 
-export type Task = {
+// todo type
+export type Todo = {
   id: number;
-  name: string;
+  title: string;
+  detail: string;
 };
