@@ -21,12 +21,7 @@ const IndexPage = ({ items }: Props) => {
   const data = { title, detail };
 
   useEffect(() => {
-    // firebase.auth().onAuthStateChanged(async (user) => {
-    //   // 匿名ユーザーを作成する
-    //   if (!user) {
-    //     firebase.auth().signInAnonymously();
-    //   }
-    // });
+    fetchAll();
   });
 
   // Firestore にデータを登録する関数
@@ -72,6 +67,12 @@ const IndexPage = ({ items }: Props) => {
 export const getStaticProps: GetStaticProps = async () => {
   // const items: Todo[] = sampleTodoData;
   // firebaseではなく、adminじゃないととってこれなさそう
+  const result = await fetchAll();
+  const items = result.props.items;
+  return { props: { items } };
+};
+
+export const fetchAll = async () => {
   const db = firebase.firestore();
   const collectionRef = await db.collection("todos").get();
   const items: Todo[] = collectionRef.docs.map((doc) => {
