@@ -1,14 +1,9 @@
 import { GetStaticProps } from "next";
-// import Link from "next/link";
 import Layout from "../components/Layout";
-// import List from "../components/List";
 import TodoList from "../components/TodoList";
 import { Todo } from "../interfaces";
-import { sampleTodoData } from "../utils/sample-data";
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
-import { disconnect } from "process";
-import { QueryDocumentSnapshot } from "firebase-functions/lib/providers/firestore";
 
 type Props = {
   items: Todo[];
