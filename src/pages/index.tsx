@@ -77,7 +77,7 @@ export const fetchAll = async () => {
   const collectionRef = await db.collection("todos").get();
   const items: Todo[] = collectionRef.docs.map((doc) => {
     return {
-      id: doc.data().id,
+      id: doc.id as string,
       title: doc.data().title,
       detail: doc.data().detail,
     };
