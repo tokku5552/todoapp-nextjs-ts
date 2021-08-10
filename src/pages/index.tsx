@@ -4,6 +4,7 @@ import TodoList from "../components/TodoList";
 import { Todo } from "../interfaces";
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
+import { fetchAll } from "../lib/todo-repository";
 
 type Props = {
   items: Todo[];
@@ -63,19 +64,6 @@ export const getStaticProps: GetStaticProps = async () => {
   // const items: Todo[] = sampleTodoData;
   const result = await fetchAll();
   const items = result.props.items;
-  return { props: { items } };
-};
-
-export const fetchAll = async () => {
-  const db = firebase.firestore();
-  const collectionRef = await db.collection("todos").get();
-  const items: Todo[] = collectionRef.docs.map((doc) => {
-    return {
-      id: doc.id as string,
-      title: doc.data().title,
-      detail: doc.data().detail,
-    };
-  });
   return { props: { items } };
 };
 
