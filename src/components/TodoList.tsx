@@ -8,7 +8,7 @@ const TodoList = () => {
   if (isLoading)
     return (
       <Loader
-        type="Puff"
+        type="Rings"
         color="#00BFFF"
         height={100}
         width={100}
