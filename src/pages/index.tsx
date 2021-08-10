@@ -5,6 +5,7 @@ import { Todo } from "../interfaces";
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { fetchAll } from "../lib/todo-repository";
+import useSWR from "swr";
 
 type Props = {
   items: Todo[];
@@ -60,11 +61,20 @@ const IndexPage = ({ items }: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  // const items: Todo[] = sampleTodoData;
-  const result = await fetchAll();
-  const items = result.props.items;
-  return { props: { items } };
+// export const getStaticProps: GetStaticProps = async () => {
+//   // const items: Todo[] = sampleTodoData;
+//   const result = await fetchAll();
+//   const items = result.props.items;
+//   return { props: { items } };
+// };
+
+export const useTodos = async () => {
+  const { data, error } = useSWR("", fetchAll);
+  return {
+    todo: data,
+    isLoading: !error && !data,
+    isError: error,
+  };
 };
 
 export default IndexPage;
