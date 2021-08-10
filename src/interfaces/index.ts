@@ -11,7 +11,7 @@ export type User = {
 
 // todo type
 export type Todo = {
-  id: number;
+  id: string;
   title: string;
   detail: string;
 };
