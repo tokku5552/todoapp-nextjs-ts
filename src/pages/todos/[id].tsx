@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Todo } from "../../interfaces";
-import { sampleTodoData } from "../../utils/sample-data";
 import Layout from "../../components/Layout";
 import TodoListDetail from "../../components/TodoListDetail";
+import { fetchAll } from "~/lib/todo-repository";
 
 type Props = {
   item?: Todo;
@@ -30,8 +30,10 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
 export default StaticPropsDetail;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = sampleTodoData.map((user) => ({
-    params: { id: user.id.toString() },
+  const todos = await fetchAll();
+
+  const paths = todos.items.map((todo) => ({
+    params: { id: todo.id.toString() },
   }));
 
   return { paths, fallback: false };
@@ -40,7 +42,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const id = params?.id;
-    const item = sampleTodoData.find((data) => data.id === id);
+    const todos = await fetchAll();
+    const item = todos.items.find((data) => data.id === id);
 
     return { props: { item } };
   } catch (err) {

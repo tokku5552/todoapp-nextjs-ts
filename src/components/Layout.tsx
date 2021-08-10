@@ -23,11 +23,6 @@ const Layout = ({ children, title = "TodoApp Sample by Next.js" }: Props) => (
         <Link href="/about">
           <a>About</a>
         </Link>{" "}
-        |{" "}
-        <Link href="/users">
-          <a>Users List</a>
-        </Link>{" "}
-        | <a href="/api/users">Users API</a>
       </nav>
     </header>
     {children}
