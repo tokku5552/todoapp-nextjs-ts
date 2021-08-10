@@ -5,13 +5,8 @@ import { Todo } from "../interfaces";
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { fetchAll } from "../lib/todo-repository";
-import useSWR from "swr";
 
-type Props = {
-  items: Todo[];
-};
-
-const IndexPage = ({ items }: Props) => {
+const IndexPage = () => {
   const [title, setTitle] = useState("");
   const [detail, setDetail] = useState("");
 
@@ -43,7 +38,7 @@ const IndexPage = ({ items }: Props) => {
         <input type="submit" value="Submit" />
       </p>
       <p>
-        <TodoList items={items} />
+        <TodoList />
       </p>
       <p>
         <label>
@@ -67,14 +62,5 @@ const IndexPage = ({ items }: Props) => {
 //   const items = result.props.items;
 //   return { props: { items } };
 // };
-
-export const useTodos = async () => {
-  const { data, error } = useSWR("", fetchAll);
-  return {
-    todo: data,
-    isLoading: !error && !data,
-    isError: error,
-  };
-};
 
 export default IndexPage;

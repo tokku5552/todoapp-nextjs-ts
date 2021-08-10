@@ -8,6 +8,8 @@ npx create-next-app todoapp --example with-typescript
 
 ```
 npm install --save firebase
+npm install --save swr
+npm install --save react-loader-spinner
 ```
 
 # setting firebase

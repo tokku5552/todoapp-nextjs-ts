@@ -1,5 +1,6 @@
 import { Todo } from "../interfaces";
 import firebase from "../firebase";
+import useSWR from "swr";
 
 export const fetchAll = async () => {
   const db = firebase.firestore();
@@ -11,5 +12,14 @@ export const fetchAll = async () => {
       detail: doc.data().detail,
     };
   });
-  return { props: { items } };
+  return { items };
+};
+
+export const useTodos = () => {
+  const { data, error } = useSWR("firestore/posts", fetchAll);
+  return {
+    todos: data,
+    isLoading: !error && !data,
+    isError: error,
+  };
 };
