@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Todo } from "../interfaces";
-import TextField from "./TextField";
+import { TextField } from "./index";
 
 type TodoListDetailProps = {
   item?: Todo;

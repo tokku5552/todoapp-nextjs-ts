@@ -1,11 +1,7 @@
-import { GetStaticProps } from "next";
-import Layout from "../components/Layout";
-import TodoList from "../components/TodoList";
-import { Todo } from "../interfaces";
+import { Layout, TodoList } from "../components";
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { fetchAll } from "../lib/todo-repository";
-import TextField from "~/components/TextField";
 
 const IndexPage = () => {
   const [title, setTitle] = useState("");

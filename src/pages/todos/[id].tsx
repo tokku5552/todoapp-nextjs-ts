@@ -1,7 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import { Todo } from "../../interfaces";
-import Layout from "../../components/Layout";
-import TodoListDetail from "../../components/TodoListDetail";
+import { Layout, TodoListDetail } from "../../components";
 import { fetchAll } from "~/lib/todo-repository";
 
 type Props = {
