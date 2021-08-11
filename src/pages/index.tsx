@@ -5,6 +5,7 @@ import { Todo } from "../interfaces";
 import { useState, useEffect } from "react";
 import firebase from "../firebase";
 import { fetchAll } from "../lib/todo-repository";
+import TextField from "~/components/TextField";
 
 const IndexPage = () => {
   const [title, setTitle] = useState("");
@@ -30,13 +31,7 @@ const IndexPage = () => {
   return (
     <Layout title="Home">
       <h1>TodoAppSample Next.js</h1>
-      <p>
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>{" "}
-        <input type="submit" value="Submit" />
-      </p>
+      <TextField value="a" />
       <p>
         <TodoList />
       </p>
