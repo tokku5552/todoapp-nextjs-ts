@@ -2,29 +2,26 @@ import * as React from "react";
 
 type Props = {
   value?: string;
+  onChange?: (value: string) => void;
 };
 
-const TextField = ({ value }: Props) => {
-  const [message, setMessage] = React.useState(value);
+const TextField = (props: Props) => {
+  //   const [message, setMessage] = React.useState(props.value);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMessage(e.target.value);
-  };
+  //   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //     setMessage(e.target.value);
+  //   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("次のメッセージが送信されました: " + message);
-  };
+  //   const handleSubmit = (e: React.FormEvent) => {
+  //     e.preventDefault();
+  //     alert("次のメッセージが送信されました: " + message);
+  //   };
   return (
-    <p>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Field:
-          <input type="text" value={message} onChange={handleChange} />
-        </label>{" "}
-        <input type="submit" value="送信" />
-      </form>
-    </p>
+    <input
+      type="text"
+      value={props.value}
+      onChange={(event) => props.onChange(event.target.value)}
+    />
   );
 };
 

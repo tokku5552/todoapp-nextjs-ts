@@ -31,7 +31,6 @@ const IndexPage = () => {
   return (
     <Layout title="Home">
       <h1>TodoAppSample Next.js</h1>
-      <TextField value="a" />
       <p>
         <TodoList />
       </p>
