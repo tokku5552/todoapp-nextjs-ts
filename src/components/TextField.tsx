@@ -6,16 +6,6 @@ type Props = {
 };
 
 const TextField = (props: Props) => {
-  //   const [message, setMessage] = React.useState(props.value);
-
-  //   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     setMessage(e.target.value);
-  //   };
-
-  //   const handleSubmit = (e: React.FormEvent) => {
-  //     e.preventDefault();
-  //     alert("次のメッセージが送信されました: " + message);
-  //   };
   return (
     <input
       type="text"
