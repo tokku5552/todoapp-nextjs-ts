@@ -23,3 +23,37 @@ export const useTodos = () => {
     isError: error,
   };
 };
+
+// Firestore にデータを登録する関数
+export const createData = async (item: Todo) => {
+  if (!item.title || !item.detail) {
+    alert("名前とメッセージを入力してください");
+    return;
+  }
+
+  const db = firebase.firestore();
+  await db
+    .collection("todos")
+    .doc()
+    .set({ title: item.title, detail: item.detail });
+  alert("Firestoreにデータを作成できました！");
+};
+
+// Firestore にデータを登録する関数
+export const updateData = async (item: Todo) => {
+  if (!item.id) {
+    alert("idが取得できませんでした");
+    return;
+  }
+  if (!item.title || !item.detail) {
+    alert("名前とメッセージを入力してください");
+    return;
+  }
+
+  const db = firebase.firestore();
+  await db
+    .collection("todos")
+    .doc(item.id)
+    .update({ title: item.title, detail: item.detail });
+  alert("Firestoreのデータを更新できました！");
+};

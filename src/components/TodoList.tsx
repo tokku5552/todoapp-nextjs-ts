@@ -1,6 +1,6 @@
 import * as React from "react";
 import TodoListItem from "./TodoListItem";
-import { useTodos } from "~/lib/todo-repository";
+import { useTodos } from "../lib/todo-repository";
 import Loader from "react-loader-spinner";
 
 const TodoList = () => {
