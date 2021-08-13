@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Todo } from "../interfaces";
-import { TextField } from "./index";
+import { TextField, Button } from "./index";
 
 type TodoListDetailProps = {
   item?: Todo;
@@ -16,6 +16,8 @@ const TodoListDetail = (props: TodoListDetailProps) => {
       <br />
       <h2>Detail</h2>
       <TextField value={detail} onChange={setDetail} />
+      <br /> <br />
+      <Button label="aaa" onClick={() => alert("yeah!")} />
     </div>
   );
 };
