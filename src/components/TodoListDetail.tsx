@@ -10,9 +10,10 @@ type TodoListDetailProps = {
 
 const TodoListDetail = (props: TodoListDetailProps) => {
   // idを渡されていない場合は新規作成
-  const isCreate = !props.item.id;
-  const [title, setTitle] = useState(props.item.title);
-  const [detail, setDetail] = useState(props.item.detail);
+  const isCreate = props.item == null;
+  console.log(isCreate);
+  const [title, setTitle] = useState(props?.item?.title);
+  const [detail, setDetail] = useState(props?.item?.detail);
 
   const router = useRouter();
 
