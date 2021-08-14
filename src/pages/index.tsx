@@ -1,6 +1,6 @@
 import { Button, Layout, TodoList } from "../components";
 import { useEffect } from "react";
-import { Box, chakra } from "@chakra-ui/react";
+import { Box, chakra, Heading } from "@chakra-ui/react";
 import { fetchAll } from "../lib/todo-repository";
 import router from "next/router";
 
@@ -16,7 +16,9 @@ const IndexPage = () => {
   return (
     <Box>
       <Layout title="Home">
-        <chakra.h1 color="tomato">TodoAppSample Next.js</chakra.h1>
+        <Heading as="h1" size="2xl" isTruncated>
+          TodoAppSample Next.js
+        </Heading>
         <p>
           <TodoList />
         </p>

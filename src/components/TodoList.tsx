@@ -2,6 +2,7 @@ import * as React from "react";
 import TodoListItem from "./TodoListItem";
 import { useTodos } from "../lib/todo-repository";
 import Loader from "react-loader-spinner";
+import { List } from "@chakra-ui/react";
 
 const TodoList = () => {
   const { todos, isLoading, isError } = useTodos();
@@ -17,13 +18,14 @@ const TodoList = () => {
     );
 
   return (
-    <ul>
+    // <ul>
+    <List spacing={3}>
       {todos.items.map((item) => (
-        <li key={item.id}>
-          <TodoListItem data={item} />
-        </li>
+        // <li key={item.id}>
+        <TodoListItem data={item} />
       ))}
-    </ul>
+    </List>
+    // </ul>
   );
 };
 
