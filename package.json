@@ -11,9 +11,10 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.6",
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
+    "@chakra-ui/icons": "^1.0.0",
+    "@chakra-ui/react": "^1.4.2",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "firebase": "^8.8.1",
     "firebase-admin": "^9.4.2",
     "firebase-functions": "^3.13.1",

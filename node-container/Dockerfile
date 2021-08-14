@@ -1,7 +1,7 @@
 FROM node:latest
 
 # Define working directory
-WORKDIR /workdir
+WORKDIR /todoapp-nextjs-ts
 
 # Firebase toolsのインストール
 #RUN apt-get -y update && apt-get install -y sudo openjdk-11-jdk
