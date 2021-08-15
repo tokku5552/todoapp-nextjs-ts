@@ -11,7 +11,7 @@ const TodoListItem = ({ data }: Props) => (
   <Link href="/todos/[id]" as={`/todos/${data.id}`}>
     <a>
       <ListItem
-        bg="blue"
+        bg="blue.500"
         w="80%"
         p={4}
         color="white"
