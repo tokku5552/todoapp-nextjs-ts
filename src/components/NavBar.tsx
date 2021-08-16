@@ -3,7 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -21,6 +20,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { Button } from "./index";
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -59,6 +59,7 @@ export default function NavBar() {
             color={useColorModeValue("gray.800", "white")}
           >
             Logo
+            {/* Logoに差し替える */}
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -72,7 +73,8 @@ export default function NavBar() {
           direction={"row"}
           spacing={6}
         >
-          <Button
+          {/* サインインボタン */}
+          {/* <Button
             as={"a"}
             fontSize={"sm"}
             fontWeight={400}
@@ -93,7 +95,9 @@ export default function NavBar() {
             }}
           >
             Sign Up
-          </Button>
+          </Button> */}
+          <Button label={"SignIn"} />
+          <Button label={"SignUp"} />
         </Stack>
       </Flex>
 
