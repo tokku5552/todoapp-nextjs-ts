@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Input } from "@chakra-ui/react";
 
 type Props = {
   value?: string;
@@ -7,11 +8,13 @@ type Props = {
 
 const TextField = (props: Props) => {
   return (
-    <input
-      type="text"
-      value={props.value}
-      onChange={(event) => props.onChange(event.target.value)}
-    />
+    <>
+      <Input
+        focusBorderColor="blue"
+        value={props.value}
+        onChange={(event) => props.onChange(event.target.value)}
+      />
+    </>
   );
 };
 

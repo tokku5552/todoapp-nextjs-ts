@@ -10,6 +10,7 @@ npx create-next-app todoapp --example with-typescript
 npm install --save firebase
 npm install --save swr
 npm install --save react-loader-spinner
+npm install --save @chakra-ui/react @emotion/react @emotion/styled framer-motion @chakra-ui/icons
 ```
 
 # setting firebase

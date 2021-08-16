@@ -1,13 +1,10 @@
 import { Button, Layout, TodoList } from "../components";
-import { useState, useEffect } from "react";
-import firebase from "../firebase";
+import { useEffect } from "react";
+import { Box, chakra, Heading } from "@chakra-ui/react";
 import { fetchAll } from "../lib/todo-repository";
 import router from "next/router";
 
 const IndexPage = () => {
-  const [title, setTitle] = useState("");
-  const [detail, setDetail] = useState("");
-
   useEffect(() => {
     fetchAll();
   });
@@ -17,13 +14,17 @@ const IndexPage = () => {
   };
 
   return (
-    <Layout title="Home">
-      <h1>TodoAppSample Next.js</h1>
-      <p>
-        <TodoList />
-      </p>
-      <Button label={"新規作成"} onClick={handleClick} />
-    </Layout>
+    <Box>
+      <Layout title="Home">
+        <Heading as="h1" size="2xl" isTruncated>
+          TodoAppSample Next.js
+        </Heading>
+        <p>
+          <TodoList />
+        </p>
+        <Button label={"新規作成"} onClick={handleClick} />
+      </Layout>
+    </Box>
   );
 };
 
