@@ -96,7 +96,7 @@ export default function NavBar() {
           >
             Sign Up
           </Button> */}
-          <Button label={"SignIn"} />
+          <Button label={"SignIn"} isActive={false} />
           <Button label={"SignUp"} />
         </Stack>
       </Flex>
